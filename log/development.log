@@ -3149,3 +3149,28 @@ Cannot render console from 74.72.137.151! Allowed networks: 127.0.0.1, ::1, 127.
 Processing by ProductsController#new as HTML
   Rendered products/new.html.erb within layouts/application (595.7ms)
 Completed 200 OK in 609ms (Views: 608.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/products" for 74.72.137.151 at 2018-07-18 21:49:12 +0000
+Cannot render console from 74.72.137.151! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ProductsController#index as HTML
+  [1m[35mProduct Load (0.2ms)[0m  SELECT "products".* FROM "products"
+  Rendered products/index.html.erb within layouts/application (9.6ms)
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 0.2ms)
+
+ActionView::Template::Error (Missing partial products/_product, application/_product with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:erb, :builder, :raw, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/home/Perchitti/receiving-api-posts-lab-v-000/app/views"
+):
+    1: <% @products.each do |product| %>
+    2:   <%= render partial: "product", locals: {post: product} %>
+    3: <% end %>
+    4: 
+    5: <script type="text/javascript" charset="utf-8">
+  app/views/products/index.html.erb:2:in `block in _app_views_products_index_html_erb__791704779571328455_70138426748400'
+  app/views/products/index.html.erb:1:in `_app_views_products_index_html_erb__791704779571328455_70138426748400'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.3.1/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.2ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.1/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.4ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.1/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.1/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (41.1ms)
